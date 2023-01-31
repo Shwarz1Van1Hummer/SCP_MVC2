@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+        width:60%;
+        height:100%;
+        border:1px solid black;
+        float:left;
+        margin-left: 4%;
+        text-align:center;
+        background-color: Silver;
+        border-radius:50px;
+        }
+        .bord{
+        width:14%;
+        height:100%;
+        border:1px solid black;
+        float:left;
+        margin-left: 4%;
+        text-align:center;
+        background-color: Silver;
+        border-radius:50px;
+
+    </style>
+</head>
+<body style="background-image: url(/media/main_page/fon.jpg); background-size:cover;">
+<header style="width:100%; height:100%; border: 1px solid black; font-size:30px;">Ваш профиль</header>
+
+    {% if user.is_authenticated %}
+<div style="width:15%; height:10%; border:1px solid black; padding:20px 1% 20px; float:left; background-color: LightGray; border-radius:50px;">
+    <img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px;">
+    </div>
+<div class="main">
+    <p style="text-align:center; font-size:45px; margin-bottom:20px;">Индивидуальная лента</p>
+    <hr style="width:100%">
+    <img src="/media/main_page/logotip_scp.gif" class="cripto" style="width:300px;">
+    <h2>На данный момент ведётся разработка внутренней валюты</h2>
+</div>
+<div style="padding:1%; border: 1px solid black; width:15%; position:absolute; padding-top:16%; border-radius:50px;">
+    <h1>Имя:</h1> <h2>{{ user.email }}</h2>
+    <img src="/media/main_page/logotip_scp.gif"  style="width:120px;">
+    <h2>Баланс : На данный момент недоступно</h2>
+</div>
+<div class="bord">
+    <h1>Привелегии и бонусы:</h1>
+    {% if user.is_staff %}
+    <h1>Администратор</h1>
+    <h2>Карта доступа совета О5</h2>
+    <img src="/media/cards/Card_05.jpg"  style="width:220px; border-radius:10px;">
+    <p></p>
+    {% else %}
+    <h1>На данный момент бонусов и привелегий нет</h1>
+    {% endif %}
+</div>
+
+    {% endif %}
+
+
+
+</body>
+</html>

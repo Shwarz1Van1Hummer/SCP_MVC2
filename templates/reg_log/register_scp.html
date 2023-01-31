@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+        }
+        .form1
+        {
+            position: fixed;
+            width: 380px;
+            height: 550px;
+            background: #1c1c1c;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        section
+        {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        section span
+        {
+            position: relative;
+            display: block;
+            width: calc(6.25vw - 2px);
+            height: calc(6.25vw - 2px);
+            background: #181818;
+            z-index: 2px;
+            transition: 1.5s;
+
+        }
+        section::before
+        {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#000, #00FFFF, #000);
+            animation: animate 5s linear infinite;
+        }
+        @keyframes animate
+        {
+            0%
+            {
+                transform: translateY(-100%);
+            }
+            100%
+            {
+                transform: translateY(100%);
+            }
+        }
+        section span:hover
+        {
+            background: #00FFFF;
+            transition: 0s;
+        }
+        .form1::before
+        {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent, #00FFFF,
+            #00FFFF);
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+        }
+        .form1::after
+        {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent, #00FFFF,
+            #00FFFF);
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -3s;
+        }
+        @keyframes animate
+        {
+            0%
+            {
+                transform: rotate(0deg);
+            }
+            100%
+            {
+                transform: rotate(360deg);
+            }
+        }
+        .box
+        {
+            position: absolute;
+            inset: 2px;
+            border-radius: 8px;
+            background: #29292d;
+            z-index: 10;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction:column;
+        }
+        .inputBox
+        {
+            position: relative;
+            width: 300px;
+            margin-top: 35px;
+        }
+        @media (max-width: 900px)
+        {
+            section span
+            {
+                width: calc(10vw - 2px);
+                height: calc(10vw - 2px);
+            }
+        }
+        @media (max-width: 600px)
+        {
+            section span
+            {
+                width: calc(20vw - 2px);
+                height: calc(20vw - 2px);
+            }
+        }
+        a.glo{
+         color:#00c6ff;
+         border-radius: 5px;
+         padding: 10px 20px;
+         width:100px;
+         text-decoration:none;
+         text-align:center;
+         margin:20px auto;
+         display: block;
+         background-image: linear-gradient(to left,transparent,transparent 50%,#00c6ff 50%,#00c6ff);
+         background-position: 100% 0;
+         background-size: 200% 100%;
+         transition: all .25s ease-in;
+         font: 400 18px tahoma;
+         border: 1px solid #00C6FF;
+         }
+        a.glo:hover {
+        background-position: 0 0;
+        color:#fff;
+        }
+        input[type=submit] {
+        margin-left:68px;
+          background-color: #0693cd;
+          border: 0;
+          border-radius: 5px;
+          cursor: pointer;
+          color: #fff;
+          font-size:16px;
+          font-weight: bold;
+          line-height: 1.4;
+          padding: 10px;
+          width: 180px
+        }
+
+
+
+
+    </style>
+</head>
+<body style= "background-image: url(/media/main_page/testf.jpg);">
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+
+
+    <form action="{% url 'register' %}" class="form1" style="align-items: center;" enctype="multipart/form-data" method="POST" >
+        <div class="box" style="color: #45f3ff;">
+        <h1 style="text-align:center; color:#45f3ff;">Регистрация в ФОНД SCP</h1>
+        <hr style="width: 100%;">
+        {% csrf_token %}
+            <div class="inputBox">
+                {{ form.as_p }}
+            </div>
+        <input type="submit" value="Зарегистрироваться" class="reg">
+            <a href="/user/login/" class="glo">Авторизация</a>
+
+
+        </div>
+    </form>
+    </section>
+</body>
+</html>

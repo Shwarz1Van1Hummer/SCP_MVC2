@@ -1,0 +1,415 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCP</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static '/protect.css' %}">
+<style>
+    #new{
+       border:1px solid black;
+       text-align:center;
+        }
+
+#window1{
+        float:left;
+        border:1px solid black;
+        width:20%;
+        height:100%;
+        }
+
+#block1 {
+        margin:10px;
+        text-align:center;
+        border:1px solid black;
+        }
+
+#window2{
+        float:left;
+        margin-left: 10px;
+        border:1px solid black;
+        width: 60%;
+        height: 100%;
+        }
+#window3 {
+        float:left;
+        margin-left: 10px;
+        border:1px solid black;
+        width: 18%;
+        height: 100%;
+        }
+.form{
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        }
+
+#zatemnenie, #zatemnenie1, #zatemnenie2, #zatemnenie3, #zatemnenie4,#zatemnenie5,
+#zatemnenie6, #zatemnenie7
+ {
+        background: rgba(102, 102, 102, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        position:fixed;
+      }
+#okno, #okno1, #okno2, #okno3, #okno4, #okno5, #okno6, #okno7 {
+        width: 40%;
+        height: 40%;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid #0000cc;
+        border-radius: 10px;
+        color: #0000cc;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: #fff;
+        position:fixed;
+      }
+#zatemnenie:target {display: block;}
+      .close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie1:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie2:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie3:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie4:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie5:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie6:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+#zatemnenie7:target {display: block;}
+.close {
+        display: inline-block;
+        border: 1px solid #0000cc;
+        color: #0000cc;
+        padding: 0 12px;
+        margin: 10px;
+        text-decoration: none;
+        background: #f2f2f2;
+        font-size: 14pt;
+        cursor:pointer;
+      }
+.close:hover {background: #e6e6ff;}
+
+a.work_safe{
+
+         border-radius: 5px;
+         padding: 10px 20px;
+         width:100px;
+         text-decoration:none;
+         text-align:center;
+         margin:20px auto;
+         display: block;
+         background-image: linear-gradient(to left,transparent,transparent 50%,#32CD32 50%, Green);
+         background-position: 100% 0;
+         background-size: 200% 100%;
+         transition: all .25s ease-in;
+         font: 400 18px tahoma;
+         border: 1px solid #32CD32;
+         }
+        a.work_safe:hover {
+        background-position: 0 0;
+        color:#fff;
+        }
+
+</style>
+</head>
+
+<body style="background-image:url(/media/main_page/secrett.jpg); color:white; background-size:100%; background-attachment: fixed;">
+
+{% if user.is_authenticated %}
+<header style="margin-top:10px; width:100%; height:100%; border:1px solid black;"><a href="{% url 'logout' %}" style="border:1px solid black; width:40px; height: 10px; text-align:center;">
+    <div style="width:5%; height:30px; border:1px solid black; border-style: outset; background-color:grey; margin-left:2%;">Выйти</div></a>
+    <a href="{% url 'profile' %}" style="border:1px solid black; width:40px; height: 10px; text-align:center;"><div style="width:5%; height:30px; border:1px solid black; border-style: outset; background-color:grey; margin-left:2%"> Профиль </div> </a>
+    </header>
+    {% endif %}
+
+<h1 id="new">SECURE CONTAIN PROTECT
+
+</h1>
+
+<hr style="1000px;">
+
+<div id="window1">
+
+    <h2 style="text-align:center">Классы SCP объектов</h2>
+
+    <div id="block1" style="background-color:#DCDCDC"><h3 style="color:black;">Безопасный класс объекта</h3>
+        <a href="/scp/olx"><img src="/media/main_page/safe_object.jpg " style="width:100px;height:100px"> </a>
+        <p></p>
+        <a href="#zatemnenie4" class="work_safe">Добавить</a>
+        <p></p>
+        <a href="/scp/scp/" class="work_safe">Переход к безопасным объектам</a>
+        <div id="zatemnenie4">
+            <div id="okno4" style="background-image: linear-gradient(to left,transparent,transparent 0%,#32CD32 100%, #32CD32);">
+        <form method="POST" action="/scp/add/" class="form" enctype="multipart/form-data" >
+        {% csrf_token %}
+            <p style="margin-top:20px;"></p>
+            <h1 style="color:green;">Безопасный объект</h1>
+            <span>Название объекта фонда </span><input type="text" placeholder="SCP-011" name="title_object">
+            <p></p>
+            <textarea placeholder="Описание" name="description" style="width:100%; height:30%"></textarea>
+            <p></p>
+            <span>Изображение объекта </span><input type="file" name="file" id="file">
+            <p></p>
+            <input type="submit" value="Enter">
+            <p></p>
+            <a href="#" class="close">Закрыть окно</a>
+        </form>
+                </div>
+        </div>
+    </div>
+
+
+    <div id="block1" style="background-color:#DCDCDC;"><h3 style="color:black">Евклид класс объекта</h3>
+    <a href="/scp/euclid_info"> <img src="/media/main_page/euclid.jpg " style="width:100px;height:100px"> </a>
+        <p></p>
+        <a href="#zatemnenie5" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#FFFF00 50%, Gold); border:1px solid Gold;">Добавить</a>
+        <p></p>
+        <a href="/scp/euclid/" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#FFFF00 50%, Gold); border:1px solid Gold;">Перейти на сайт евклид объектов</a>
+        <div id="zatemnenie5">
+            <div id="okno5" style="background-image: linear-gradient(to left,transparent,transparent 0%,gold 150%, gold);">
+        <form method="POST" action="/scp/euclid_base/" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+            <p style="margin-top:20px;"></p>
+            <h1 style="color:#CD853F;">Евклид объект</h1>
+            <input type="text" placeholder="SCP-011" name="title_object">
+            <p></p>
+            <textarea placeholder="Описание" name="description" style="width:100%; height:30%"></textarea>
+            <span>Изображение объекта </span><input type="file" name="euclid_file" id="file">
+            <p></p>
+            <input type="submit" value="Enter">
+            <p></p>
+            <a href="#" class="close">Закрыть окно</a>
+        </form>
+        </div>
+        </div>
+        </div>
+
+    <div id="block1" style="background-color:#DCDCDC;"><h3 style="color:black;">Кетер класс объекта</h3>
+        <a href="/scp/keter_info/"><img src="/media/main_page/keter.jpg " style="width:100px;height:100px"></a>
+        <p></p>
+        <a href="#zatemnenie6" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#8B0000 50%, red); border:1px solid red;">Добавить</a>
+        <p></p>
+        <a href="/scp/keter/" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#8B0000 50%, red); border:1px solid red;">Перейти на сайт кетер объектов</a>
+        <div id="zatemnenie6">
+            <div id="okno6" style="background-image: linear-gradient(to left,transparent,transparent 0%, red 150%, red);">
+        <form method="POST" action="/scp/keter_base/" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+            <p style="margin-top:20px;"></p>
+            <h1 style="color:red;">Кетер объект</h1>
+            <span>Название объекта фонда </span><input type="text" placeholder="SCP-011" name="title_object">
+            <p></p>
+            <textarea placeholder="Описание" name="description" style="width:100%; height:30%"></textarea>
+            <span>Изображение объекта </span><input type="file" name="keter_file" id="file">
+            <p></p>
+            <input type="submit" value="Enter">
+            <p></p>
+            <a href="#" class="close">Закрыть окно</a>
+
+
+        </form>
+        </div>
+        </div>
+    </div>
+    <div id="block1" style="background-color:#C0C0C0;"><h3 style="color:white">Таумиель класс объекта</h3>
+    <a href="/scp/thaumiel_info/"><img src="/media/main_page/thaumiel.jpg " style="width:100px;height:100px"> </a>
+        <p></p>
+        <a href="#zatemnenie7" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Добавить</a>
+        <p></p>
+        <a href="/scp/thaumiel/" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Перейти на сайт таумиель объектов</a>
+        <div id="zatemnenie7">
+            <div id="okno7" style="background-image: linear-gradient(to left,transparent,transparent 0%, black 150%, DarkSlateBlue);">
+        <form method="POST" action="/scp/thaumiel_base/" class="form" enctype="multipart/form-data">
+        {% csrf_token %}
+            <p style="margin-top:20px;"></p>
+            <h1 style="color:Black;">Таумиель объект</h1>
+            {{ form.as_p }}
+            <span>Название объекта фонда </span><input type="text" placeholder="SCP-011" name="title_object">
+            <p></p>
+            <textarea placeholder="Описание" name="description" style="width:100%; height:30%"></textarea>
+            <span>Изображение объекта </span><input type="file" name="thaumiel_file" id="file">
+            <p></p>
+            <input type="submit" value="Enter">
+            <p></p>
+            <a href="#" class="close">Закрыть окно</a>
+
+
+        </form>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="window2"><h1 style="text-align:center">Что такое SCP?</h1>
+<hr style="1000px;">
+    <p style="font-size:25px;">Фонд SCP (англ. SCP Foundation; от англ. Secure, Contain, Protect — «Обезопасить, Удержать, Сохранить» или Special Containment Procedures — «Особые Условия Содержания») —  организация, являющаяся предметом одноимённого проекта совместного веб-творчества, в русском переводе также известная просто как Фонд или Организация.
+        Созданные в рамках проекта тексты описывают деятельность Фонда, несущего ответственность за содержание аномальных предметов, существ, мест, явлений и прочих объектов, называемых SCP-объектами.
+        </p>
+    <div style="border: 1px solid black; width: 100%; height: 100%; font-size:25px; text-align:center">Лента новостей
+    <hr style="100%">
+        {% for news in all_news %}
+            <h3>{{ news.heading }}</h3>
+        {% if news.image %}
+        <img src="{{ news.image.url }}" name="file" alt="..." style="width:206px; height:20%;">
+        <h4>{{ news.description_new }}</h4>
+
+            {% endif %}
+<hr style="100%">
+        {% endfor %}
+
+    </div>
+</div>
+
+
+
+<div id="window3"> <h1 style="text-align:center;">Карты Доступа</h1>
+    <div id="zatemnenie">
+        <div id="okno">
+            <img src="/media/cards/one_level.png" style="height: 200px; width:300px; margin-left:20px;">
+            <p>Это самый низкий уровень доступа ключ-карты.
+                Этой карточкой можно открыть двери в комнату управления электричеством и испытательную камеру.
+            Владельцы этой карты не имеют доступ к базами данных, и могут только следить за новостями на главной странице.</p>
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+    </div>
+    <a href="#zatemnenie"><img src="/media/cards/one_level.png" style="height: 200px; width:300px; margin-left:20px;"></a>
+
+
+<div id="zatemnenie1">
+    <div id="okno1">
+            <img src="/media/cards/two_level.jpg" style="height: 200px; width:300px; margin-left:20px;">
+            <p>Карточка более высокого уровня, владельцы этой карточки имеют доступ к просмотру новостей и доступ к чату для общения с сотрудниками второго уровня доступа, не имеют доступ к базами данных.</p>
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+    </div>
+    <a href="#zatemnenie1"><img src="/media/cards/two_level.jpg" style="height: 200px; width:300px; margin-left:20px;"></a>
+
+    <div id="zatemnenie2">
+    <div id="okno2">
+            <img src="/media/cards/three_level.jpg" style="height: 200px; width:300px; margin-left:20px;">
+            <p>Нужна для входа почти во все камеры содержания SCP-объектов, открытия двери в наблюдательный пункт, сервера, медпункт, архив и для прохождения КПП из Зоны 1 в Зону 2.
+            Владельцы данной карточки имеют доступ к базами данных SCP-объектов и имеют право вносить изменения, имеют доступ к чатам для общения с сотрудниками третьего уровня.
+            </p>
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+    </div>
+    <a href="#zatemnenie2"><img src="/media/cards/three_level.jpg" style="height: 200px; width:300px; margin-left:20px;"></a>
+
+<div id="zatemnenie3">
+    <div id="okno3">
+            <img src="/media/cards/thour_level.png" style="height: 200px; width:300px; margin-left:20px;">
+            <p>Эта карта может использоваться для открытия главного офиса, владельцы этой карты имеют доступ ко всем базам данных, также имеют право вносить измения, создание новостей,
+                имеют доступ к чатам для общения с сотрудниками первого, второго, третьего и четвертого уровня.
+            </p>
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+    </div>
+    <a href="#zatemnenie3"><img src="/media/cards/thour_level.png" style="height: 200px; width:300px; margin-left:20px;"></a>
+
+
+</div>
+
+</body>
+</html>
+
+

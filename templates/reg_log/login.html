@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body
+        {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form1
+        {
+            position: relative;
+            width: 580px;
+            height: 500px;
+            background: #1c1c1c;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .form1::before
+        {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 580px;
+            height: 500px;
+            background: linear-gradient(0deg,transparent, #00FFFF,
+            #00FFFF);
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+        }
+        .form1::after
+        {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 580px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent, #00FFFF,
+            #00FFFF);
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -3s;
+        }
+        @keyframes animate
+        {
+            0%
+            {
+                transform: rotate(0deg);
+            }
+            100%
+            {
+                transform: rotate(360deg);
+            }
+        }
+        .box
+        {
+            position: absolute;
+            inset: 2px;
+            border-radius: 8px;
+            background: #29292d;
+            z-index: 10;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction:column;
+        }
+        .inputBox
+        {
+            position: relative;
+            width: 300px;
+            margin-top: 35px;
+        }
+        a.glo{
+         color:#00c6ff;
+         border-radius: 5px;
+         padding: 10px 20px;
+         width:100px;
+         text-decoration:none;
+         text-align:center;
+         margin:20px auto;
+         display: block;
+         background-image: linear-gradient(to left,transparent,transparent 50%,#00c6ff 50%,#00c6ff);
+         background-position: 100% 0;
+         background-size: 200% 100%;
+         transition: all .25s ease-in;
+         font: 400 18px tahoma;
+         border: 1px solid #00C6FF;
+         }
+        a.glo:hover {
+        background-position: 0 0;
+        color:#fff;
+        }
+        input[type=submit] {
+        margin-left:170px;
+          background-color: #0693cd;
+          border: 0;
+          border-radius: 5px;
+          cursor: pointer;
+          color: #fff;
+          font-size:16px;
+          font-weight: bold;
+          line-height: 1.4;
+          padding: 10px;
+          width: 180px
+        }
+
+    </style>
+</head>
+<body style="background-image: url(/media/main_page/testf.jpg); color:white; background-size:cover;">
+
+    <form action="{% url 'login' %}" class="form1" style="align-items: center;" enctype="multipart/form-data" method="POST" >
+        <div class="box">
+        <h1 style="text-align:center; color:#45f3ff;">Авторизация в ФОНД SCP</h1>
+        <hr style="width: 100%;">
+        {% csrf_token %}
+        <p>Имя</p>
+        {{form.email}}
+        <p>Пароль</p>
+        {{form.password}}
+        <p></p>
+        <input type="submit" value="Войти">
+            <p></p>
+            <a href="/user/register/" class="glo">Регистрация</a>
+
+            </div>
+
+
+</form>
+
+</body>
+</html>
