@@ -212,24 +212,22 @@ a.work_safe{
 </style>
 </head>
 
-<body style="background-image:url(/media/main_page/secrett.jpg); color:white; background-size:100%; background-attachment: fixed;">
+<body style="background-image:url(/media/main_page/secrett.jpg); color:white; background-size:100%; background-attachment: fixed; ">
 
 {% if user.is_authenticated %}
-<header style="margin-top:10px; width:100%; height:100%; border:1px solid black;"><a href="{% url 'logout' %}" style="border:1px solid black; width:40px; height: 10px; text-align:center;">
-    <div style="width:5%; height:30px; border:1px solid black; border-style: outset; background-color:grey; margin-left:2%;">Выйти</div></a>
-    <a href="{% url 'profile' %}" style="border:1px solid black; width:40px; height: 10px; text-align:center;"><div style="width:5%; height:30px; border:1px solid black; border-style: outset; background-color:grey; margin-left:2%"> Профиль </div> </a>
+<header style="margin-top:10px; width:100%; height:100%; border:1px solid black; background: rgba(0, 0, 0, 0.7); border-radius:20px;">
+    <a href="{% url 'logout' %}" class="work_safe" style="float:left; margin-left:25px; background-image: linear-gradient(to left,transparent,transparent 50%, MidnightBlue	50%, Aqua); border: 3px solid MidnightBlue;">Выйти</a>
+    <a href="{% url 'profile' %}" class="work_safe" style="margin-left:200px; background-image: linear-gradient(to left,transparent,transparent 50%, MidnightBlue	50%, Aqua); border:3px solid MidnightBlue;">Профиль</a>
     </header>
     {% endif %}
 
-<h1 id="new">SECURE CONTAIN PROTECT
-
-</h1>
+<h1 id="new" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;">SECURE CONTAIN PROTECT</h1>
 
 <hr style="1000px;">
 
-<div id="window1">
+<div id="window1" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;">
 
-    <h2 style="text-align:center">Классы SCP объектов</h2>
+    <h2 style="text-align:center; ">Классы SCP объектов</h2>
 
     <div id="block1" style="background-color:#DCDCDC"><h3 style="color:black;">Безопасный класс объекта</h3>
         <a href="/scp/olx"><img src="/media/main_page/safe_object.jpg " style="width:100px;height:100px"> </a>
@@ -348,7 +346,7 @@ a.work_safe{
 </div>
 
 
-<div id="window2"><h1 style="text-align:center">Что такое SCP?</h1>
+<div id="window2" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;"><h1 style="text-align:center">Что такое SCP?</h1>
 <hr style="1000px;">
     <p style="font-size:25px;">Фонд SCP (англ. SCP Foundation; от англ. Secure, Contain, Protect — «Обезопасить, Удержать, Сохранить» или Special Containment Procedures — «Особые Условия Содержания») —  организация, являющаяся предметом одноимённого проекта совместного веб-творчества, в русском переводе также известная просто как Фонд или Организация.
         Созданные в рамках проекта тексты описывают деятельность Фонда, несущего ответственность за содержание аномальных предметов, существ, мест, явлений и прочих объектов, называемых SCP-объектами.
@@ -372,7 +370,7 @@ a.work_safe{
 
 
 
-<div id="window3"> <h1 style="text-align:center;">Карты Доступа</h1>
+<div id="window3" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;"> <h1 style="text-align:center;">Карты Доступа</h1>
     <div id="zatemnenie">
         <div id="okno">
             <img src="/media/cards/one_level.png" style="height: 200px; width:300px; margin-left:20px;">
@@ -382,17 +380,17 @@ a.work_safe{
             <a href="#" class="close">Закрыть окно</a>
         </div>
     </div>
-    <a href="#zatemnenie"><img src="/media/cards/one_level.png" style="height: 200px; width:300px; margin-left:20px;"></a>
+    <a href="#zatemnenie"><img src="/media/cards/one_level.png" style="height: 200px; width:300px; margin-left:10px; margin-top:0px; border-radius:10px;"></a>
 
 
 <div id="zatemnenie1">
     <div id="okno1">
-            <img src="/media/cards/two_level.jpg" style="height: 200px; width:300px; margin-left:20px;">
+            <img src="/media/cards/two_level.jpg" style="height: 200px; width:300px; margin-left:10px; margin-top:10px; border-radius:10px;">
             <p>Карточка более высокого уровня, владельцы этой карточки имеют доступ к просмотру новостей и доступ к чату для общения с сотрудниками второго уровня доступа, не имеют доступ к базами данных.</p>
             <a href="#" class="close">Закрыть окно</a>
         </div>
     </div>
-    <a href="#zatemnenie1"><img src="/media/cards/two_level.jpg" style="height: 200px; width:300px; margin-left:20px;"></a>
+    <a href="#zatemnenie1"><img src="/media/cards/two_level.jpg" style="height: 200px; width:300px; margin-left:10px; margin-top:20px; border-radius:10px;"></a>
 
     <div id="zatemnenie2">
     <div id="okno2">
@@ -403,7 +401,7 @@ a.work_safe{
             <a href="#" class="close">Закрыть окно</a>
         </div>
     </div>
-    <a href="#zatemnenie2"><img src="/media/cards/three_level.jpg" style="height: 200px; width:300px; margin-left:20px;"></a>
+    <a href="#zatemnenie2"><img src="/media/cards/three_level.jpg" style="height: 200px; width:300px; margin-left:10px; margin-top:20px; border-radius:10px;"></a>
 
 <div id="zatemnenie3">
     <div id="okno3">
@@ -414,7 +412,7 @@ a.work_safe{
             <a href="#" class="close">Закрыть окно</a>
         </div>
     </div>
-    <a href="#zatemnenie3"><img src="/media/cards/thour_level.png" style="height: 200px; width:300px; margin-left:20px;"></a>
+    <a href="#zatemnenie3"><img src="/media/cards/thour_level.png" style="height: 200px; width:300px; margin-left:10px; margin-top:20px; margin-bottom:10px; border-radius:10px;"></a>
 
 
 </div>
