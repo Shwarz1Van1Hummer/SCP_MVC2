@@ -16,7 +16,9 @@
             <img src="{{ thaumiel.image.url }}" name="file" alt="..." style="width:13%; height:20%; float:left">
         <h1> {{ thaumiel.title_object }} </h1>
            <h3> {{ thaumiel.description }}</h3></div>
+        {% if user.is_staff %}
         <div style="border-style: outset; width:5%; height:5%; margin-left:50%; background-color:grey;"> <a href="{% url 'delete-thaumiel' thaumiel.id %}" style=" color:black;">Удалить</a></div>
+        {% endif %}
             {% endif %}
 
         <hr style="100%; color:white;">

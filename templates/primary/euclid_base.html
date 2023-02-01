@@ -16,8 +16,9 @@
             <img src="{{ euclid.image.url }}" name="file" alt="..." style="width:13%; height:20%; float:left; border: 2px solid black; margin:5px;">
         <h1> {{ euclid.title_object }} </h1>
            <h3> {{ euclid.description }}</h3>
+            {% if user.is_staff %}
         <div style="border-style: outset; width:5%; height:5%; margin-left:50%; background-color:grey;"> <a href="{% url 'euclid-delete' euclid.id %}" style=" color:black;">Удалить</a></div>
-
+            {% endif %}
         </div>
             {% endif %}
 

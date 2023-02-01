@@ -234,7 +234,9 @@ a.work_safe{
     <div id="block1" style="background-color:#DCDCDC"><h3 style="color:black;">Безопасный класс объекта</h3>
         <a href="/scp/olx"><img src="/media/main_page/safe_object.jpg " style="width:100px;height:100px"> </a>
         <p></p>
+        {% if user.is_staff %}
         <a href="#zatemnenie4" class="work_safe">Добавить</a>
+        {% endif %}
         <p></p>
         <a href="/scp/scp/" class="work_safe">Переход к безопасным объектам</a>
         <div id="zatemnenie4">
@@ -261,7 +263,9 @@ a.work_safe{
     <div id="block1" style="background-color:#DCDCDC;"><h3 style="color:black">Евклид класс объекта</h3>
     <a href="/scp/euclid_info"> <img src="/media/main_page/euclid.jpg " style="width:100px;height:100px"> </a>
         <p></p>
+        {% if user.is_staff %}
         <a href="#zatemnenie5" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#FFFF00 50%, Gold); border:1px solid Gold;">Добавить</a>
+        {% endif %}
         <p></p>
         <a href="/scp/euclid/" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#FFFF00 50%, Gold); border:1px solid Gold;">Перейти на сайт евклид объектов</a>
         <div id="zatemnenie5">
@@ -286,8 +290,10 @@ a.work_safe{
     <div id="block1" style="background-color:#DCDCDC;"><h3 style="color:black;">Кетер класс объекта</h3>
         <a href="/scp/keter_info/"><img src="/media/main_page/keter.jpg " style="width:100px;height:100px"></a>
         <p></p>
+        {% if user.is_staff %}
         <a href="#zatemnenie6" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#8B0000 50%, red); border:1px solid red;">Добавить</a>
         <p></p>
+        {% endif %}
         <a href="/scp/keter/" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#8B0000 50%, red); border:1px solid red;">Перейти на сайт кетер объектов</a>
         <div id="zatemnenie6">
             <div id="okno6" style="background-image: linear-gradient(to left,transparent,transparent 0%, red 150%, red);">
@@ -312,8 +318,10 @@ a.work_safe{
     <div id="block1" style="background-color:#C0C0C0;"><h3 style="color:white">Таумиель класс объекта</h3>
     <a href="/scp/thaumiel_info/"><img src="/media/main_page/thaumiel.jpg " style="width:100px;height:100px"> </a>
         <p></p>
+        {% if user.is_staff %}
         <a href="#zatemnenie7" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Добавить</a>
         <p></p>
+        {% endif %}
         <a href="/scp/thaumiel/" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Перейти на сайт таумиель объектов</a>
         <div id="zatemnenie7">
             <div id="okno7" style="background-image: linear-gradient(to left,transparent,transparent 0%, black 150%, DarkSlateBlue);">
