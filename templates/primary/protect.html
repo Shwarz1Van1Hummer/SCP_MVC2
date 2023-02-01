@@ -361,6 +361,9 @@ a.work_safe{
         <img src="{{ news.image.url }}" name="file" alt="..." style="width:206px; height:20%;">
         <h4>{{ news.description_new }}</h4>
             {% endif %}
+        {% if user.is_staff %}
+        <div> <a href="{% url 'del_new' news.id %}" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Удалить</a></div>
+        {% endif %}
 <hr style="100%">
         {% endfor %}
 
