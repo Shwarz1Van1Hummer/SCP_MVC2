@@ -12,7 +12,7 @@ class SCP(models.Model):
 
     class Meta:
         ordering = (
-            'id',
+            'title_object',
         )
 
 
@@ -26,7 +26,7 @@ class SCPEuclid(models.Model):
 
     class Meta:
         ordering = (
-            'id',
+            'title_object',
 
         )
 
@@ -41,7 +41,7 @@ class SCPKetter(models.Model):
 
     class Meta:
         ordering = (
-            'id',
+            'title_object',
 
         )
 
@@ -56,7 +56,7 @@ class SCPThaumiel(models.Model):
 
     class Meta:
         ordering = (
-            'id',
+            'title_object',
 
         )
 

@@ -5,7 +5,6 @@ from .models import *
 def view_scp_news(request):
     if request.method == "GET":
         all_news = News.objects.all()
-
         # return redirect('/news/nscp/')
         return render(
             request=request,
