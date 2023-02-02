@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for message in all_message %}
+<img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px;">
+<h2>{{ user.email }}</h2>
+<h1> {{message.message}} </h1>
+<p>{{message.date}}</p>
+
+{% endfor %}
+<form method="POST" action="/chat/message/" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" name="message">
+    <input type="submit" value="Enter">
+</form>
+</body>
+</html>

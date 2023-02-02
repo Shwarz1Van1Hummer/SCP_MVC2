@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.scp_base',
     'apps.bank',
     'apps.news',
+    'apps.chat',
 
 ]
 
