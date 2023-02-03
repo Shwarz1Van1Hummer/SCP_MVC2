@@ -15,7 +15,7 @@ def add_euclid(request):
         description = request.POST.get('description')
         file = request.FILES.get('euclid_file')
         scp_euclid = SCPEuclid.objects.create(title_object=title_object, description=description, image=file)
-        return redirect('/scp/add/')
+        return redirect('/news/nscp/')
 
 
 def euclid(request):

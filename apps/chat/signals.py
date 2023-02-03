@@ -8,6 +8,7 @@ from apps.users.models import Profile
 def message_post(sender, instance, created, *args, **kwargs):
     if created:
         create_message = Message.objects.create(
+            user=f'{instance.user}',
             message=f'{instance.message}',
             date=f'{instance.date}'
         )

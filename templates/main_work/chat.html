@@ -3,14 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .circle {
+          width: 60px;
+          height: 60px;
+          border: 1px solid black;
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background: -moz-linear-gradient(-45deg, #183850 , #5865F2 25%, #183850 50%, #183850 75%, #183850 100%);
+  background: -webkit-linear-gradient(-45deg, #183850 , #5865F2 25%, #183850 50%, #183850 75%, #183850 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.2);
+}
+
+.chat-thread {
+  margin: 24px auto 0 auto;
+  padding: 0 20px 0 0;
+  list-style: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat-thread li {
+  position: relative;
+  clear: both;
+  display: inline-block;
+  padding: 16px 40px 16px 20px;
+  margin: 0 0 20px 0;
+  font: 16px/20px 'Noto Sans', sans-serif;
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.2);
+}
+
+
+
+
+
+.chat-thread li:after {
+  position: absolute;
+  top: 15px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 15px solid rgba(25, 147, 147, 0.2);
+}
+
+.chat-thread li:nth-child(odd) {
+  animation: show-chat-odd 0.15s 1 ease-in;
+  -moz-animation: show-chat-odd 0.15s 1 ease-in;
+  -webkit-animation: show-chat-odd 0.15s 1 ease-in;
+  float: right;
+  margin-right: 80px;
+  color: #0AD5C1;
+}
+
+.chat-thread li:nth-child(odd):before {
+  right: -80px;
+}
+
+.chat-thread li:nth-child(odd):after {
+  border-right: 15px solid transparent;
+  right: -15px;
+}
+
+.chat-thread li:nth-child(even) {
+  animation: show-chat-even 0.15s 1 ease-in;
+  -moz-animation: show-chat-even 0.15s 1 ease-in;
+  -webkit-animation: show-chat-even 0.15s 1 ease-in;
+  float: left;
+  margin-left: 80px;
+  color: #0EC879;
+}
+
+
+.chat-window-message {
+  width: 100%;
+  height: 48px;
+  font: 32px/48px 'Noto Sans', sans-serif;
+  background: none;
+  color: #0AD5C1;
+  border: 0;
+  border-bottom: 1px solid rgba(25, 147, 147, 0.2);
+  outline: none;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1px;
+    margin-inline-start: 600px;
+    font-weight: 500;
+    margin-inline-end: 0px;
+}
+input.text{
+  width:  900px;
+  height: 30px;
+  padding: 5px 1px 5px px;
+  border:2px solid #999;
+  font-size:20px;
+  margin-left: 400px;
+
+}
+    </style>
 </head>
 <body>
 {% for message in all_message %}
-<img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px;">
-<h2>{{ user.email }}</h2>
-<h1> {{message.message}} </h1>
-<p>{{message.date}}</p>
-
+<img src="{{ user.profile.image.url }}" class="circle"><span>{{ user.email }}</span>
+<span>{{message.date}}</span>
+<br>
+<span> {{message.message}} </span>
+<br>
 {% endfor %}
 <form method="POST" action="/chat/message/" class="form" enctype="multipart/form-data">
     {% csrf_token %}
