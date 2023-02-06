@@ -7,10 +7,14 @@
 
     <link rel="stylesheet" type="text/css" href="{% static '/protect.css' %}">
 <style>
-    #new{
-       border:1px solid black;
-       text-align:center;
-        }
+.safe {
+    width:100px;
+    height:100px;
+}
+#new{
+    border:1px solid black;
+    text-align:center;
+}
 
 #window1{
         float:left;
@@ -20,9 +24,10 @@
         }
 
 #block1 {
-        margin:10px;
+        margin:20px;
         text-align:center;
         border:1px solid black;
+        border-radius:50px;
         }
 
 #window2{
@@ -228,7 +233,7 @@ a.work_safe{
     <h2 style="text-align:center; ">Классы SCP объектов</h2>
 
     <div id="block1" style="background-color:#DCDCDC"><h3 style="color:black;">Безопасный класс объекта</h3>
-        <a href="/scp/olx"><img src="/media/main_page/safe_object.jpg " style="width:100px;height:100px"> </a>
+        <a href="/scp/olx"><img src="/media/main_page/safe_object.jpg" class="safe"></a>
         <p></p>
         {% if user.is_staff %}
         <a href="#zatemnenie4" class="work_safe">Добавить</a>
@@ -257,7 +262,7 @@ a.work_safe{
 
 
     <div id="block1" style="background-color:#DCDCDC;"><h3 style="color:black">Евклид класс объекта</h3>
-    <a href="/scp/euclid_info"> <img src="/media/main_page/euclid.jpg " style="width:100px;height:100px"> </a>
+    <a href="/scp/euclid_info"> <img src="/media/main_page/euclid.jpg " class="safe"> </a>
         <p></p>
         {% if user.is_staff %}
         <a href="#zatemnenie5" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#FFFF00 50%, Gold); border:1px solid Gold;">Добавить</a>
@@ -284,7 +289,7 @@ a.work_safe{
         </div>
 
     <div id="block1" style="background-color:#DCDCDC;"><h3 style="color:black;">Кетер класс объекта</h3>
-        <a href="/scp/keter_info/"><img src="/media/main_page/keter.jpg " style="width:100px;height:100px"></a>
+        <a href="/scp/keter_info/"><img src="/media/main_page/keter.jpg " class="safe""></a>
         <p></p>
         {% if user.is_staff %}
         <a href="#zatemnenie6" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%,#8B0000 50%, red); border:1px solid red;">Добавить</a>
@@ -312,7 +317,7 @@ a.work_safe{
     </div>
 
     <div id="block1" style="background-color:#C0C0C0;"><h3 style="color:white">Таумиель класс объекта</h3>
-    <a href="/scp/thaumiel_info/"><img src="/media/main_page/thaumiel.jpg " style="width:100px;height:100px"> </a>
+    <a href="/scp/thaumiel_info/"><img src="/media/main_page/thaumiel.jpg " class="safe"> </a>
         <p></p>
         {% if user.is_staff %}
         <a href="#zatemnenie7" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Добавить</a>
@@ -359,20 +364,19 @@ a.work_safe{
         {% if user.is_staff %}
         <div> <a href="{% url 'del_new' news.id %}" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, DarkSlateBlue); border:1px solid DarkSlateBlue;">Удалить</a></div>
         {% endif %}
-<hr style="100%">
+    <hr style="100%">
         {% endfor %}
 
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; Начальная страница</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Следующая</a>
+        <a href="?page=1" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, aqua);">&laquo; Начальная страница</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, aqua);">Следующая</a>
         {% endif %}
 
          Страница {{ page_obj.number }} и {{ page_obj.paginator.num_pages }}.
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="work_safe" style="background-image: linear-gradient(to left,transparent,transparent 50%, black 50%, aqua);">Следующая</a>
 <!--            <a href="?page={{ page_obj.paginator.num_pages }}">Назад &raquo;</a>-->
         {% endif %}
-
 
     </div>
 </div>
