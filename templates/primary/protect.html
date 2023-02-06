@@ -219,8 +219,6 @@ a.work_safe{
     <a href="{% url 'logout' %}" class="work_safe" style="float:left; margin-left:25px; background-image: linear-gradient(to left,transparent,transparent 50%, MidnightBlue	50%, Aqua); border: 3px solid MidnightBlue;">Выйти</a>
     <a href="{% url 'profile' %}" class="work_safe" style="margin-left:200px; background-image: linear-gradient(to left,transparent,transparent 50%, MidnightBlue	50%, Aqua); border:3px solid MidnightBlue;">Профиль</a>
 </header>
-
-
 <h1 id="new" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;">SECURE CONTAIN PROTECT</h1>
 
 <hr style="1000px;">
@@ -308,11 +306,11 @@ a.work_safe{
             <p></p>
             <a href="#" class="close">Закрыть окно</a>
 
-
         </form>
         </div>
         </div>
     </div>
+
     <div id="block1" style="background-color:#C0C0C0;"><h3 style="color:white">Таумиель класс объекта</h3>
     <a href="/scp/thaumiel_info/"><img src="/media/main_page/thaumiel.jpg " style="width:100px;height:100px"> </a>
         <p></p>
@@ -345,7 +343,6 @@ a.work_safe{
 
 </div>
 
-
 <div id="window2" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;"><h1 style="text-align:center">Что такое SCP?</h1>
 <hr style="1000px;">
     <p style="font-size:25px;">Фонд SCP (англ. SCP Foundation; от англ. Secure, Contain, Protect — «Обезопасить, Удержать, Сохранить» или Special Containment Procedures — «Особые Условия Содержания») —  организация, являющаяся предметом одноимённого проекта совместного веб-творчества, в русском переводе также известная просто как Фонд или Организация.
@@ -370,10 +367,7 @@ a.work_safe{
             <a href="?page={{ page_obj.previous_page_number }}">Следующая</a>
         {% endif %}
 
-
-         Page {{ page_obj.number }} or {{ page_obj.paginator.num_pages }}.
-
-
+         Страница {{ page_obj.number }} и {{ page_obj.paginator.num_pages }}.
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
 <!--            <a href="?page={{ page_obj.paginator.num_pages }}">Назад &raquo;</a>-->
@@ -382,9 +376,6 @@ a.work_safe{
 
     </div>
 </div>
-
-
-
 <div id="window3" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;"> <h1 style="text-align:center;">Карты Доступа</h1>
     <div id="zatemnenie">
         <div id="okno">
@@ -438,6 +429,7 @@ a.work_safe{
 
 </div>
 {% endif %}
+
 </body>
 </html>
 
