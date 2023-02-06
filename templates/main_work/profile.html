@@ -33,7 +33,7 @@
 <header style="width:100%; height:100%; border: 0px solid black; font-size:30px; margin-left:60px;">Ваш профиль</header>
 
     {% if user.is_authenticated %}
-    <img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px; float:left; padding:20px 1% 20px; border-radius:50px;">
+    <div style="border-radius: 20px; width:270px; float:left; padding:20px 1% 20px; border-radius:50px;"></div>
 <div class="main">
     <p style="text-align:center; font-size:45px; margin-bottom:20px;">Индивидуальная лента</p>
     <hr style="width:99%">
@@ -46,7 +46,8 @@
 
 </div>
 
-<div style="padding:1%; border: 1px solid black; width:15%; position:absolute; padding-top:16%; border-radius:50px;">
+<div style="padding:1%; border: 1px solid black; width:15%; position:absolute; padding-top:1%; border-radius:50px; background-color: Silver;">
+    <img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px; float:left; padding:20px 1% 20px; border-radius:50px;">
     <h1>Имя:</h1> <h2>{{ user.email }}</h2>
     <img src="/media/main_page/logotip_scp.gif"  style="width:120px;">
     <h2>Баланс : На данный момент недоступно</h2>
