@@ -218,8 +218,16 @@ a.work_safe{
 <header style="margin-top:10px; width:100%; height:100%; border:1px solid black; background: rgba(0, 0, 0, 0.7); border-radius:20px;">
     <a href="{% url 'logout' %}" class="work_safe" style="float:left; margin-left:25px; background-image: linear-gradient(to left,transparent,transparent 50%, MidnightBlue	50%, Aqua); border: 3px solid MidnightBlue;">Выйти</a>
     <a href="{% url 'profile' %}" class="work_safe" style="margin-left:200px; background-image: linear-gradient(to left,transparent,transparent 50%, MidnightBlue	50%, Aqua); border:3px solid MidnightBlue;">Профиль</a>
-</header>
+    {% if avatar.image %}
+    <p>Hi</p>
+    {% else %}
+
+<!--        <input type="file" name="image" accept="image/*" required="" id="id_image">-->
+<!--        <input type="submit" value="Сохранить" class="default" name="_save">-->
+<!--    </form>-->
     {% endif %}
+</header>
+{% endif %}
 
 <h1 id="new" style="background: rgba(0, 0, 0, 0.7); border-radius:20px;">SECURE CONTAIN PROTECT</h1>
 

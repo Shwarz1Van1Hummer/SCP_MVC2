@@ -94,7 +94,7 @@ def profile_avatar_create(request):
     avatar = Profile.objects.create(user=user, image=image)
     return render(
         request=request,
-        template_name="reg_log/next_animation.html",
+        template_name="primary/protect.html",
         context={
             "avatar": avatar
         }
