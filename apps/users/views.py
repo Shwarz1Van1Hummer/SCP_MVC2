@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, FormView, View, ListView
 from typing import Any
-from apps.users.forms import RegisterUserForm, AvtorizateUser
+from apps.users.forms import RegisterUserForm, AvtorizateUser, ProfileUpdateForm
 from apps.users.models import CustomUser, CustomUserManager, Profile
 from django.contrib.auth import (
     authenticate as dj_auntheficate,
@@ -81,22 +82,19 @@ def logout_user(request):
     return redirect('login')
 
 
-def animationview(request):
-    return render(
-        request=request,
-        template_name='reg_log/next_animation.html'
-    )
-
-
 def profile_avatar_create(request):
-    user = request.POST.get('user')
-    image = request.FILES.get('image')
-    avatar = Profile.objects.create(user=user, image=image)
+    if request == "POST":
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if p_form.is_valid():
+            p_form.save()
+            return redirect('nscp')
+    else:
+        p_form = ProfileUpdateForm(instance=request.user.profile)
     return render(
         request=request,
         template_name="primary/protect.html",
         context={
-            "avatar": avatar
+            "p_form": p_form
         }
     )
 
@@ -108,3 +106,9 @@ class ProfileUserView(ListView):
 
 
 
+#
+# def animationview(request):
+#     return render(
+#         request=request,
+#         template_name='reg_log/next_animation.html'
+#     )

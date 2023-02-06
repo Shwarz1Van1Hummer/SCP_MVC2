@@ -6,7 +6,7 @@ urlpatterns = [
     path('register/', RegisterUser.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', logout_user, name='logout'),
-    path('anime/', animationview, name='anima'),
+    # path('anime/', animationview, name='anima'),
     path('profile/', ProfileUserView.as_view(), name='profile'),
     path('avatar/', profile_avatar_create, name='avatar')
 

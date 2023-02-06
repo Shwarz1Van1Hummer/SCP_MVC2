@@ -33,15 +33,19 @@
 <header style="width:100%; height:100%; border: 0px solid black; font-size:30px; margin-left:60px;">Ваш профиль</header>
 
     {% if user.is_authenticated %}
-<div style="width:15%; height:10%; border:1px solid black; padding:20px 1% 20px; float:left; background-color: LightGray; border-radius:50px;">
-    <img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px;">
-    </div>
+    <img src="{{ user.profile.image.url }}" style="border-radius: 20px; width:270px; float:left; padding:20px 1% 20px; border-radius:50px;">
 <div class="main">
     <p style="text-align:center; font-size:45px; margin-bottom:20px;">Индивидуальная лента</p>
-    <hr style="width:100%">
+    <hr style="width:99%">
     <img src="/media/main_page/logotip_scp.gif" class="cripto" style="width:300px;">
     <h2>На данный момент ведётся разработка внутренней валюты</h2>
+    <hr style="width:90%">
+    <div style="width:50%; height:50%; border:1px solid black; margin-left:25%">
+
+    </div>
+
 </div>
+
 <div style="padding:1%; border: 1px solid black; width:15%; position:absolute; padding-top:16%; border-radius:50px;">
     <h1>Имя:</h1> <h2>{{ user.email }}</h2>
     <img src="/media/main_page/logotip_scp.gif"  style="width:120px;">

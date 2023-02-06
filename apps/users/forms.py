@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from apps.users.models import CustomUser
+from apps.users.models import CustomUser, Profile
 
 
 class RegisterUserForm(forms.ModelForm):
@@ -33,3 +33,7 @@ class AvtorizateUser(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
 
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
