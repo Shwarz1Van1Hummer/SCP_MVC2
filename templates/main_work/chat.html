@@ -122,18 +122,46 @@ input.text{
     </style>
 </head>
 <body>
-{% for message in all_message %}
-<img src="{{ user.profile.image.url }}" class="circle"><span>{{ user.email }}</span>
-<span>{{message.date}}</span>
-<br>
-<span> {{message.message}} </span>
-<br>
-{% endfor %}
-<form method="POST" action="/chat/message/" class="form" enctype="multipart/form-data">
-    {% csrf_token %}
+{% for i in messages %}
+    {% if i.sender != user %}
+<!--<img src="{{ user.profile.image.url }}" class="circle"><span>{{ user.email }}</span>-->
+<div>
+    <p style="color: #000;"> {{i.message}} <strong>{{i.sender}}</strong></p>
+</div>
+{% else %}
 
-    <input type="text" name="message">
-    <input type="submit" value="Enter">
+<div>
+    <p style="color: #000;">{{i.message}}</p>
+</div>
+    {% endif %}
+{% endfor %}
+<form method="POST" action="/chat/create/" class="form" enctype="multipart/form-data">
+     {% csrf_token %}
+<textarea id="msg" cols="30" name="message" rows="10" placeholder="Enter your message" required></textarea>
+<button class="submit" type="submit">Send</button>
 </form>
+
+<script>
+    $(document).on('submit', '#message', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: window.location.href,
+        data: {
+            message: $('#msg').val(),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+
+        }
+    });
+    $(".parent").load(window.location.href + " .parent");
+})
+
+$(document).ready(function(){
+    setInterval(function(){
+        $(".message").load(window.location.href + " .message");
+
+    }, 1000)
+})
+</script>
 </body>
 </html>
