@@ -120,8 +120,11 @@ input.text{
 
 }
     </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+<div class="parent">
+<div class="message">
 {% for i in messages %}
     {% if i.sender != user %}
 <!--<img src="{{ user.profile.image.url }}" class="circle"><span>{{ user.email }}</span>-->
@@ -129,18 +132,19 @@ input.text{
     <p style="color: #000;"> {{i.message}} <strong>{{i.sender}}</strong></p>
 </div>
 {% else %}
-
 <div>
     <p style="color: #000;">{{i.message}}</p>
 </div>
     {% endif %}
 {% endfor %}
-<form method="POST" action="/chat/create/" class="form" enctype="multipart/form-data">
+</div>
+<form method="POST" action="" class="form" enctype="multipart/form-data">
      {% csrf_token %}
 <textarea id="msg" cols="30" name="message" rows="10" placeholder="Enter your message" required></textarea>
 <button class="submit" type="submit">Send</button>
 </form>
 
+</div>
 <script>
     $(document).on('submit', '#message', function(e){
     e.preventDefault();
